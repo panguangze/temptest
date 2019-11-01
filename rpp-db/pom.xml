@@ -11,9 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.byoryn</groupId>
     <artifactId>rpp-db</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <!--hibernate 支持-->
