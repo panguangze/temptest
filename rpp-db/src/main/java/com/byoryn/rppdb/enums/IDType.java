@@ -1,12 +1,12 @@
-package com.byoryn.rppdb.entity;
+package com.byoryn.rppdb.enums;
 
-public enum SampleStatusType {
-    POSTED((byte) 0, "已邮寄");
+public enum IDType {
+    ID_CARD((byte) 0, "身份证");
 
     private byte typeCode;
     private String typeValue;
 
-    SampleStatusType(byte typeCode, String typeValue) {
+    IDType(byte typeCode, String typeValue) {
         this.typeCode = typeCode;
         this.typeValue = typeValue;
     }

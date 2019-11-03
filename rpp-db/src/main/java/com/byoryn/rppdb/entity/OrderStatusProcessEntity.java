@@ -1,7 +1,7 @@
 package com.byoryn.rppdb.entity;
 
 import com.byoryn.rppdb.base.BaseEntity;
-import com.byoryn.rppdb.enums.BuyerRoleType;
+import com.byoryn.rppdb.enums.OrderStatusType;
 import com.byoryn.rppdb.utils.CodeValueConverter;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,15 +19,8 @@ import javax.persistence.Entity;
 @Getter
 @ToString
 @Entity
-public class BuyerEntity extends BaseEntity {
-    @Column(length = 30)
-    private String name;
-    @Column(length = 30)
-    private String phoneNum;
-    @Column(length = 120)
-    private String email;
-    private String address;
+public class OrderStatusProcessEntity extends BaseEntity {
     @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)
-    private BuyerRoleType buyerRoleType;
+    private OrderStatusType orderStatusType;
 }

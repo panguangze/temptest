@@ -1,13 +1,15 @@
-package com.byoryn.rppdb.entity;
+package com.byoryn.rppdb.enums;
+
+import com.byoryn.rppdb.base.BaseTypeEnum;
 
 /**
  * @author panguangze
  * @data 2019/10/31
  */
-public enum UserRoleType  {
-    PLATFORM((byte)0, "平台"),
+public enum UserRoleType implements BaseTypeEnum {
+    PLATFORM((byte) 0, "平台"),
 
-    BUSINESSES((byte)1, "商家");
+    BUSINESSES((byte) 1, "商家");
 
     private byte typeCode;
     private String typeName;
@@ -17,7 +19,7 @@ public enum UserRoleType  {
         this.typeName = typeName;
     }
 
-    public int getTypeCode() {
+    public byte getTypeCode() {
         return typeCode;
     }
 

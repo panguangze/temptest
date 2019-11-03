@@ -1,12 +1,10 @@
-package com.byoryn.rppdb.entity;
-
-import com.byoryn.rppdb.base.BaseTypeEnum;
+package com.byoryn.rppdb.enums;
 
 /**
  * @author panguangze
  * @data 2019/10/31
  */
-public enum BoolType implements BaseTypeEnum {
+public enum BoolType {
     BOOL_TRUE((byte) 1, Boolean.TRUE),
     BOOL_FALSE((byte) 0, Boolean.FALSE);
 

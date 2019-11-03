@@ -1,16 +1,18 @@
-package com.byoryn.rppdb.entity;
+package com.byoryn.rppdb.enums;
 
-public enum SampleType {
-    BLOOD((byte)0, "血液", "毫升");
+/**
+ * @author panguangze
+ * @data 2019/10/31
+ */
+public enum BuyerRoleType {
+    NORMAL((byte) 0, "个人买家");
 
     private byte typeCode;
     private String typeValue;
-    private String unit;
 
-    SampleType(byte typeCode, String typeValue, String unit) {
+    BuyerRoleType(byte typeCode, String typeValue) {
         this.typeCode = typeCode;
         this.typeValue = typeValue;
-        this.unit = unit;
     }
 
     public byte getTypeCode() {
@@ -27,13 +29,5 @@ public enum SampleType {
 
     public void setTypeValue(String typeValue) {
         this.typeValue = typeValue;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
     }
 }

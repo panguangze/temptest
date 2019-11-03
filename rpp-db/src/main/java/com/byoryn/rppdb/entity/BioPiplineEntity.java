@@ -1,13 +1,14 @@
 package com.byoryn.rppdb.entity;
 
 import com.byoryn.rppdb.base.BaseEntity;
-import com.byoryn.rppdb.enums.BoolType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 /**
  * @author panguangze
@@ -17,12 +18,10 @@ import javax.persistence.Entity;
 @Getter
 @ToString
 @Entity
-public class PanelEntity extends BaseEntity {
+public class BioPiplineEntity extends BaseEntity {
     private String name;
-    @Column(name = "create_user_id")
     private int CreateUserId;
-    @Column(columnDefinition = "text")
-    private String data;
-    @Column(columnDefinition = "tinyint")
-    private BoolType active;
+    @OneToMany
+    @JoinColumn(name = "bio_pipline_id", referencedColumnName = "id")
+    private Set<ProductEntity> productEntities;
 }

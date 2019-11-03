@@ -1,8 +1,8 @@
-package com.byoryn.rppdb.entity;
+package com.byoryn.rppdb.enums;
 
 public enum GenderType {
-    MALE((byte)0, "男"),
-    FEMALE((byte)1, "女");
+    MALE((byte) 0, "男"),
+    FEMALE((byte) 1, "女");
 
     private byte typeCode;
     private String typeValue;

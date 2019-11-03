@@ -1,42 +1,61 @@
 package com.byoryn.rppdb.entity;
 
 import com.byoryn.rppdb.base.BaseEntity;
+import com.byoryn.rppdb.enums.BoolType;
+import com.byoryn.rppdb.enums.OrderStatusType;
 import com.byoryn.rppdb.utils.CodeValueConverter;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @author panguangze
  * @data 2019/10/31
  */
+@Setter
+@Getter
+@ToString
+@Entity
 public class OrderEntity extends BaseEntity {
-    public OrderEntity() {
-
-    }
-
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    private String uuid;
+    private String customId;
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "buyer_id", referencedColumnName = "id")
     private BuyerEntity buyerEntity;
-    @Column(name = "create_user_id")
     private int CreateUserId;
+
+    @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)
     private BoolType sequence;
+
+    @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)
     private BoolType post;
-    @Column(name = "real_price")
     private float realPrice;
+
+    @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)
     private OrderStatusType orderStatusType;
+
+    @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)
     private BoolType active;
 
     @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "order_status_id", referencedColumnName = "id")
-    private OrderStatusProcess statusProcess;
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Set<OrderStatusProcessEntity> statusProcesses;
 
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Set<IdentifierEntity> identifierEntities;
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "report_id", referencedColumnName = "id")
+    private ReportEntity reportEntity;
 }
