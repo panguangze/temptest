@@ -9,7 +9,7 @@ import java.util.Collection;
 
 /**
  * @author panguangze
- * @data 2019/11/4
+ * @date 2019/11/4
  */
 @AllArgsConstructor
 public class UserDetailsBo implements UserDetails {

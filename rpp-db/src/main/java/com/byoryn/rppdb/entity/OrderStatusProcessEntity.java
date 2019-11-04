@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 
 /**
  * @author panguangze
- * @data 2019/10/31
+ * @date 2019/10/31
  */
 @Setter
 @Getter

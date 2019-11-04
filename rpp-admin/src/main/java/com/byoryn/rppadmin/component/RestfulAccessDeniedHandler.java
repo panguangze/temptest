@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * @author panguangze
- * @data 2019/11/4
+ * @date 2019/11/4
  */
 @Component
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
@@ -21,7 +21,7 @@ public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
         httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletResponse.setContentType("application/json");
-        httpServletResponse.getWriter().println(JSONUtil.parse(ResponseResult.error("11002", e.getMessage())));
+        httpServletResponse.getWriter().println(JSONUtil.parse(ResponseResult.error(403, "11002", e.getMessage())));
         httpServletResponse.getWriter().flush();
     }
 }

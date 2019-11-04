@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * @author panguangze
- * @data 2019/10/31
+ * @date 2019/10/31
  * 基本Entity类，一般情况下所有的Entity都继承该类
  */
 @Setter

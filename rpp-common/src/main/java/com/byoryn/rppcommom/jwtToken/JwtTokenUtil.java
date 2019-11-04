@@ -30,10 +30,16 @@ import java.util.Map;
 public class JwtTokenUtil {
     private static final String CLAIM_KEY_USERNAME = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
-    @Value("${jwt.secret}")
     private static String secret;
-    @Value("${jwt.expiration}")
     private static Long expiration;
+    @Value("${jwt.secret}")
+    public void setSecret(String secret) {
+        JwtTokenUtil.secret = secret;
+    }
+    @Value("${jwt.expiration}")
+    public void setExpiration(Long expiration) {
+        JwtTokenUtil.expiration = expiration;
+    }
 
     /**
      * 根据负责生成JWT的token

@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  * @author panguangze
- * @data 2019/10/31
+ * @date 2019/10/31
  */
 public interface UserService {
     UserEntity getUserByName(String username);
@@ -16,4 +16,10 @@ public interface UserService {
      * 登录接口，返回一个token
      */
     String login(String username, String password);
+
+    /**
+     * 注册成功以后直接生成token并且登录
+     * @return
+     */
+    String register();
 }

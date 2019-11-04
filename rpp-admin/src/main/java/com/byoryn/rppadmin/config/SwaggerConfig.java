@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * @author panguangze
- * @data 2019/10/31
+ * @date 2019/10/31
  * swagger配置文件
  */
 @Configuration

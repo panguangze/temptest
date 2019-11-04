@@ -6,7 +6,7 @@ import javax.persistence.AttributeConverter;
 
 /**
  * @author panguangze
- * @data 2019/10/31
+ * @date 2019/10/31
  */
 public class CodeValueConverter implements AttributeConverter<BaseTypeEnum, Byte> {
     @Override

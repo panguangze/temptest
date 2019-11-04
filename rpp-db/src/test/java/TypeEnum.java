@@ -1,6 +1,6 @@
 /**
  * @author panguangze
- * @data 2019/11/1
+ * @date 2019/11/1
  */
 public enum TypeEnum {
     AA((byte) 10, "ddd");

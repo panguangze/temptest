@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * @author panguangze
- * @data 2019/11/1
+ * @date 2019/11/1
  */
 @SpringBootApplication
 @EntityScan(basePackages = {"com.byoryn.rppdb.entity"})

@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * @author panguangze
- * @data 2019/11/4
+ * @date 2019/11/4
  *
  */
 @Component
@@ -22,7 +22,7 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletResponse.setContentType("application/json");
-        httpServletResponse.getWriter().println(JSONUtil.parse(ResponseResult.error("11001",e.getMessage())));
+        httpServletResponse.getWriter().println(JSONUtil.parseObj(ResponseResult.error(401, "11001",e.getMessage())));
         httpServletResponse.getWriter().flush();
     }
 }

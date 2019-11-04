@@ -4,54 +4,95 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * 通用返回对象
- * Created by macro on 2019/4/19.
- */
 @Setter
 @Getter
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseResult implements Serializable {
-    private final static String SUCCESS = "success";
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+public class ResponseResult {
+    //响应状态
+    private int status;
     //错误码
     private String errorCode;
     //错误信息
-    private String errorMessage;
+    private String errorMsg;
     //响应实体内容
     private Object data;
 
-    private ResponseResult(Object data) {
-        this.data = data;
+    public ResponseResult() {
     }
 
-    private ResponseResult(String errorCode, String errorMessage) {
+    public ResponseResult status(int statusCode) {
+        this.status = statusCode;
+        return this;
+    }
+
+    public ResponseResult errorCode(String errorCode) {
         this.errorCode = errorCode;
-        this.errorCode = errorMessage;
+        return this;
+    }
+
+    public ResponseResult errorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+        return this;
+    }
+
+    public ResponseResult data(Object obj) {
+        this.data = obj;
+        return this;
+    }
+
+    private static ResponseResult create() {
+        return new ResponseResult();
     }
 
     /**
-     * 成功响应，并且返回结果
-     *
-     * @param data 获取的数据
+     * 成功的响应,关注结果
+     * @param obj 响应结果
+     * @return 响应
      */
-    public static   ResponseResult ok(Object data) {
-        return new ResponseResult(data);
+    public static ResponseResult ok(Object obj) {
+        return ResponseResult.create().data(obj);
     }
 
     /**
-     * 成功响应，但是不关注结果
+     * 成功的响应,不关注结果
+     * @return 响应
      */
     public static ResponseResult success() {
-        return ResponseResult.ok(SUCCESS);
+        return ResponseResult.ok("success");
     }
 
     /**
-     * 失败响应，返回错误信息
-     * @param errorCode 错误码
+     * 成功的响应,关注操作成功条目数
+     * @param successNum 操作成功的条目数
+     * @return 响应
      */
-    public static ResponseResult error(String errorCode, String errorMessage) {
-        return new ResponseResult(errorCode, errorMessage);
+    public static ResponseResult success(int successNum) {
+        Map<String, Integer> updateSuccessResponse = new HashMap<String, Integer>();
+        updateSuccessResponse.put("count", successNum);
+        return ResponseResult.ok(updateSuccessResponse);
+    }
+
+    /**
+     * 失败的响应
+     * @param status 状态码
+     * @param errorCode 错误码
+     * @param errorMsg 错误信息
+     * @return 响应
+     */
+    public static ResponseResult error(int status, String errorCode, String errorMsg) {
+        return ResponseResult.create().status(status).errorCode(errorCode).errorMsg(errorMsg);
+    }
+
+    /**
+     * 失败的响应
+     * @param errorCode 错误码
+     * @param errorMsg 错误信息
+     * @return 响应
+     */
+    public static ResponseResult error(String errorCode, String errorMsg) {
+        return ResponseResult.create().errorCode(errorCode).errorMsg(errorMsg);
     }
 }

@@ -19,7 +19,7 @@ import java.io.IOException;
 
 /**
  * @author panguangze
- * @data 2019/11/4
+ * @date 2019/11/4
  */
 @Slf4j
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {

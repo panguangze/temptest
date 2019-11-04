@@ -13,7 +13,7 @@ import javax.persistence.*;
 
 /**
  * @author panguangze
- * @data 2019/10/31
+ * @date 2019/10/31
  * 用户表
  */
 @Setter

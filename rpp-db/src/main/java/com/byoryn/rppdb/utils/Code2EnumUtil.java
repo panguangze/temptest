@@ -4,7 +4,7 @@ import com.byoryn.rppdb.base.BaseTypeEnum;
 
 /**
  * @author panguangze
- * @data 2019/11/1
+ * @date 2019/11/1
  * 根据typeCode得到对应的枚举对象
  */
 public class Code2EnumUtil {
