@@ -46,9 +46,7 @@ public class UserEntity extends BaseEntity {
     /**
      * 该用户是否可用，默认可用
      */
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType active;
+    private boolean active;
     private int createUserId;
     /**
      * 角色，目前设计0：平台管理员，1：商家，后期可能会有扩展
@@ -56,5 +54,4 @@ public class UserEntity extends BaseEntity {
     @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)
     private UserRoleType userRoleType;
-
 }

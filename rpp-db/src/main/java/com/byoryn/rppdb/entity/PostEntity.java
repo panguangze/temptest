@@ -27,9 +27,7 @@ public class PostEntity extends BaseEntity {
     @Column(columnDefinition = "Date")
     private Date postTime;
     private float postPrice;
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType received;
+    private boolean received;
     @Column(columnDefinition = "Date")
     private Date receivedTime;
     @Column(length = 30)

@@ -23,6 +23,5 @@ public class PanelEntity extends BaseEntity {
     private int CreateUserId;
     @Column(columnDefinition = "text")
     private String data;
-    @Column(columnDefinition = "tinyint")
-    private BoolType active;
+    private boolean active;
 }

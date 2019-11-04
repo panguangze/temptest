@@ -28,9 +28,7 @@ public class SampleEntity extends BaseEntity {
     private Date sampleTime;
     @Column(columnDefinition = "Date")
     private Date receiveTime;
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType active;
+    private boolean active;
     private int creatUserId;
     @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)

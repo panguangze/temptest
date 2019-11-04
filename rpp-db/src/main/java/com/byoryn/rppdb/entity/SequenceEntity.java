@@ -19,7 +19,5 @@ public class SequenceEntity extends BaseEntity {
     @Column(length = 120)
     private String FilePath;
     private int createUserId;
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType active;
+    private boolean active;
 }

@@ -17,6 +17,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author panguangze
+ * @data 2019/10/31
+ * swagger配置文件
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -33,7 +38,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("rpp后台系统")
                 .description("rpp后台模块")
-                .version("1.0")
+                .version("1.0.0-SNAPSHOT")
                 .build();
     }
 }

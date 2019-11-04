@@ -1,3 +1,9 @@
 spring:
   profiles:
     active: dev
+
+jwt:
+  tokenHeader: Authorization
+  secret: byoryn
+  expiration: 604800
+  tokenHead: Bearer

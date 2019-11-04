@@ -35,14 +35,8 @@ public class ProductEntity extends BaseEntity {
     private String productSecondImgPath;
     private float price;
     private int createUserId;
-
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType analysis;
-
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType generateReport;
+    private boolean analysis;
+    private boolean generateReport;
 
     @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)

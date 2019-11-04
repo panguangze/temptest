@@ -1,9 +1,14 @@
 package com.byoryn.rppdb.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @author panguangze
  * @data 2019/10/31
  */
+@Getter
+@AllArgsConstructor
 public enum OrderStatusType {
     ORDERED((byte) 0, "已下单"),
     POSTED((byte) 1, "已邮寄"),
@@ -15,11 +20,4 @@ public enum OrderStatusType {
 
     private byte typeCode;
     private String typeValue;
-
-    OrderStatusType(byte typeCode, String typeValue) {
-        this.typeCode = typeCode;
-        this.typeValue = typeValue;
-    }
-
-
 }

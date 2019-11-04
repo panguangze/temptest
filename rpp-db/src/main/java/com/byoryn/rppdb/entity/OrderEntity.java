@@ -29,23 +29,14 @@ public class OrderEntity extends BaseEntity {
     @JoinColumn(name = "buyer_id", referencedColumnName = "id")
     private BuyerEntity buyerEntity;
     private int CreateUserId;
-
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType sequence;
-
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType post;
+    private boolean sequence;
+    private boolean post;
     private float realPrice;
 
     @Column(columnDefinition = "tinyint")
     @Convert(converter = CodeValueConverter.class)
     private OrderStatusType orderStatusType;
-
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BoolType active;
+    private boolean active;
 
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "order_id", referencedColumnName = "id")
