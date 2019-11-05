@@ -1,7 +1,6 @@
 package com.byoryn.rppdb.entity;
 
 import com.byoryn.rppdb.base.BaseEntity;
-import com.byoryn.rppdb.enums.BoolType;
 import com.byoryn.rppdb.enums.SampleStatusType;
 import com.byoryn.rppdb.enums.SampleType;
 import com.byoryn.rppdb.utils.CodeValueConverter;
@@ -20,9 +19,7 @@ import java.util.Set;
 public class SampleEntity extends BaseEntity {
     @Column(length = 30)
     private String number;
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private SampleType sampleType;
+    private byte sampleType;
     private int quantity;
     @Column(columnDefinition = "Date")
     private Date sampleTime;
@@ -30,9 +27,7 @@ public class SampleEntity extends BaseEntity {
     private Date receiveTime;
     private boolean active;
     private int creatUserId;
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private SampleStatusType statusType;
+    private byte statusType;
 
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "sample_id", referencedColumnName = "id")

@@ -3,6 +3,8 @@ package com.byoryn.rppdb.base;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,11 +26,10 @@ public class BaseEntity implements Serializable {
     /**
      * 该记录的创建时间，自动生成
      */
-    @Column(name = "create_time", updatable = false)
+    @CreationTimestamp
     private Date createTime;
     /**
      * 备注信息不宜过长，varchar(255)，支持保存的utf_8汉字最长为85个
      */
-    @Column(name = "addition_info")
     private String additionInfo;
 }

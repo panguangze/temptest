@@ -3,6 +3,7 @@ package com.byoryn.rppdb.base;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,10 +16,6 @@ public class BaseRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "create_time", updatable = false, columnDefinition = "Date")
+    @CreationTimestamp
     private Date createTime;
-    @Column(name = "operate_interface", length = 30)
-    private String operateInterface;
-    @Column(name = "interface_message", length = 30)
-    private String interfaceMessage;
 }

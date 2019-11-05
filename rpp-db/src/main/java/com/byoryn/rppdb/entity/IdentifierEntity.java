@@ -19,14 +19,10 @@ import java.util.Set;
 public class IdentifierEntity extends BaseEntity {
     @Column(length = 30)
     private String name;
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private GenderType genderType;
+    private byte genderType;
     @Column(columnDefinition = "Date")
     private Date birthday;
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private IDType idType;
+    private byte idType;
     @Column(length = 30)
     private String idNum;
     @Column(length = 120)

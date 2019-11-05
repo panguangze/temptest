@@ -27,7 +27,5 @@ public class BuyerEntity extends BaseEntity {
     @Column(length = 120)
     private String email;
     private String address;
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private BuyerRoleType buyerRoleType;
+    private byte buyerRoleType;
 }

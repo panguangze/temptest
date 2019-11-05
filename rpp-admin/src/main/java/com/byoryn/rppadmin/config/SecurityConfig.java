@@ -2,8 +2,6 @@ package com.byoryn.rppadmin.config;
 
 import com.byoryn.rppadmin.bo.UserDetailsBo;
 import com.byoryn.rppadmin.component.JwtAuthenticationTokenFilter;
-import com.byoryn.rppadmin.component.RestAuthenticationEntryPoint;
-import com.byoryn.rppadmin.component.RestfulAccessDeniedHandler;
 import com.byoryn.rppadmin.service.UserService;
 import com.byoryn.rppdb.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +33,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
-    @Autowired
-    private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
-    @Autowired
-    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -57,7 +51,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.js",
                         "/swagger-resources/**",
                         "/v2/api-docs/**",
-                        "/webjars/springfox-swagger-ui/**"
+                        "/webjars/springfox-swagger-ui/**",
+                        "/admin/register/checkusername"
                 )
                 .permitAll()
                 .antMatchers("/admin/login", "/admin/register")// 对登录注册要允许匿名访问
@@ -73,9 +68,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 添加JWT filter
         httpSecurity.addFilterBefore(jwtAuthenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         //添加自定义未授权和未登录结果返回
-        httpSecurity.exceptionHandling()
+//        httpSecurity.exceptionHandling()
 //                .accessDeniedHandler(restfulAccessDeniedHandler)
-                .authenticationEntryPoint(restAuthenticationEntryPoint);
+//                .authenticationEntryPoint(restAuthenticationEntryPoint);
     }
 
     @Override
@@ -97,7 +92,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             if (userEntity != null) {
                 return new UserDetailsBo(userEntity);
             }
-            throw new UsernameNotFoundException("username is not found");
+            throw new UsernameNotFoundException("用户名不存在");
         };
     }
 

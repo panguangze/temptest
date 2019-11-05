@@ -1,7 +1,6 @@
 package com.byoryn.rppdb.entity;
 
 import com.byoryn.rppdb.base.BaseEntity;
-import com.byoryn.rppdb.enums.BoolType;
 import com.byoryn.rppdb.enums.OrderStatusType;
 import com.byoryn.rppdb.utils.CodeValueConverter;
 import lombok.Getter;
@@ -33,9 +32,7 @@ public class OrderEntity extends BaseEntity {
     private boolean post;
     private float realPrice;
 
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private OrderStatusType orderStatusType;
+    private byte orderStatusType;
     private boolean active;
 
     @OneToMany(cascade = {CascadeType.ALL})

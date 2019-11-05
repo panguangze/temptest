@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  */
 public interface UserService {
     UserEntity getUserByName(String username);
-    UserEntity register(UserDto userDto);
+    String register(UserDto userDto);
     /**
      * 登录接口，返回一个token
      */
@@ -21,5 +21,5 @@ public interface UserService {
      * 注册成功以后直接生成token并且登录
      * @return
      */
-    String register();
+    void checkUsername(String username);
 }

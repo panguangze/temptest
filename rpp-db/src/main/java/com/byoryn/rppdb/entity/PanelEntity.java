@@ -1,7 +1,6 @@
 package com.byoryn.rppdb.entity;
 
 import com.byoryn.rppdb.base.BaseEntity;
-import com.byoryn.rppdb.enums.BoolType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

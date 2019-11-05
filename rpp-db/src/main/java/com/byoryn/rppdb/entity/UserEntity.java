@@ -2,10 +2,11 @@ package com.byoryn.rppdb.entity;
 
 
 import com.byoryn.rppdb.base.BaseEntity;
-import com.byoryn.rppdb.enums.BoolType;
 import com.byoryn.rppdb.enums.UserRoleType;
 import com.byoryn.rppdb.utils.CodeValueConverter;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -20,7 +21,14 @@ import javax.persistence.*;
 @Getter
 @ToString
 @Entity
+@NoArgsConstructor
 public class UserEntity extends BaseEntity {
+    public UserEntity(String username, String password, String phoneNum, String email) {
+        this.username = username;
+        this.password = password;
+        this.phoneNum = phoneNum;
+        this.email = email;
+    }
     @Column(length = 30)
     private String username;
     private String password;
@@ -51,7 +59,5 @@ public class UserEntity extends BaseEntity {
     /**
      * 角色，目前设计0：平台管理员，1：商家，后期可能会有扩展
      */
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private UserRoleType userRoleType;
+    private byte userRoleType = 1;
 }

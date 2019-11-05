@@ -20,7 +20,5 @@ import javax.persistence.Entity;
 @ToString
 @Entity
 public class OrderStatusProcessEntity extends BaseEntity {
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private OrderStatusType orderStatusType;
+    private byte orderStatusType;
 }

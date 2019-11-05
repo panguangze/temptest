@@ -1,7 +1,6 @@
 package com.byoryn.rppdb.entity;
 
 import com.byoryn.rppdb.base.BaseEntity;
-import com.byoryn.rppdb.enums.BoolType;
 import com.byoryn.rppdb.enums.ProductStatusType;
 import com.byoryn.rppdb.utils.CodeValueConverter;
 import lombok.Getter;
@@ -38,9 +37,7 @@ public class ProductEntity extends BaseEntity {
     private boolean analysis;
     private boolean generateReport;
 
-    @Column(columnDefinition = "tinyint")
-    @Convert(converter = CodeValueConverter.class)
-    private ProductStatusType statusType;
+    private byte statusType;
 
     @ManyToOne
     @JoinColumn(name = "bio_pipline_id", referencedColumnName = "id")

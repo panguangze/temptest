@@ -1,6 +1,7 @@
 package com.byoryn.rppdb.utils;
 
 import com.byoryn.rppdb.base.BaseTypeEnum;
+import com.byoryn.rppdb.enums.UserRoleType;
 
 import javax.persistence.AttributeConverter;
 
@@ -8,14 +9,16 @@ import javax.persistence.AttributeConverter;
  * @author panguangze
  * @date 2019/10/31
  */
-public class CodeValueConverter implements AttributeConverter<BaseTypeEnum, Byte> {
+public class CodeValueConverter implements AttributeConverter<UserRoleType, Integer> {
     @Override
-    public Byte convertToDatabaseColumn(BaseTypeEnum attribute) {
-        return attribute.getTypeCode();
+    public Integer convertToDatabaseColumn(UserRoleType attribute) {
+//        return attribute.getTypeCode();
+        return null;
     }
 
     @Override
-    public BaseTypeEnum convertToEntityAttribute(Byte typeCode) {
-        return Code2EnumUtil.codeOf(BaseTypeEnum.class, typeCode);
+    public UserRoleType convertToEntityAttribute(Integer typeCode) {
+//        return UserRoleType.getByTypeCode(typeCode);
+        return null;
     }
 }
